@@ -108,6 +108,35 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         chrome.action.openPopup?.();
     }
 
+    // DO_SCAN_FILE: version that handles multi-part form data uploads
+    if (msg.type === "DO_SCAN_FILE") {
+        const { endpoint, filename, base64 } = msg.payload;
+
+        // Convert base64 to Blob
+        fetch(base64)
+            .then(res => res.blob())
+            .then(blob => {
+                const formData = new FormData();
+                formData.append("file", blob, filename);
+
+                return fetch(`${BACKEND}/${endpoint}`, {
+                    method: "POST",
+                    body: formData,
+                });
+            })
+            .then(async (resp) => {
+                if (!resp.ok) {
+                    const e = await resp.json().catch(() => ({ detail: resp.statusText }));
+                    sendResponse({ error: e.detail || resp.statusText });
+                } else {
+                    const data = await resp.json();
+                    sendResponse({ data });
+                }
+            })
+            .catch((err) => sendResponse({ error: err.message }));
+        return true;
+    }
+
     // DO_SCAN: content scripts proxy backend calls through here
     // because service workers have unrestricted localhost access.
     if (msg.type === "DO_SCAN") {
