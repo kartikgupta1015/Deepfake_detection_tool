@@ -20,9 +20,9 @@ DOWNLOAD_TIMEOUT_S  = 30   # seconds per request
 # ─── Risk Thresholds ─────────────────────────────────────────────────────────
 def get_risk_level(score: float) -> str:
     """Map authenticity score (0–100) to risk label (higher score → higher risk)."""
-    if score <= 40:
+    if score <= 15:
         return "Low"
-    elif score <= 70:
+    elif score <= 55:
         return "Medium"
     else:
         return "High"
