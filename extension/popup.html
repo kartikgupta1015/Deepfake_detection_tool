@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepShield</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="icons/icon128.png" alt="DeepShield" />
+    <div class="header-text">
+      <h1>DeepShield</h1>
+      <p>Deepfake Detector</p>
+    </div>
+    <div class="status-dot" id="statusDot">
+      <span class="dot" id="dot"></span>
+      <span id="statusText">Checking…</span>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="stats">
+    <div class="stat-item low">
+      <div class="stat-value" id="countLow">0</div>
+      <div class="stat-label">✅ Low</div>
+    </div>
+    <div class="stat-item medium">
+      <div class="stat-value" id="countMedium">0</div>
+      <div class="stat-label">⚠️ Medium</div>
+    </div>
+    <div class="stat-item high">
+      <div class="stat-value" id="countHigh">0</div>
+      <div class="stat-label">🔴 High</div>
+    </div>
+  </div>
+
+  <!-- Offline banner -->
+  <div class="offline-banner" id="offlineBanner">
+    ⚡ Backend offline — start it with:<br>
+    <code>source venv/bin/activate</code><br>
+    <code>uvicorn main:app --reload --port 8000</code>
+  </div>
+
+  <!-- History -->
+  <div class="section-title">Recent Scans</div>
+
+  <div class="history-list" id="historyList">
+    <div class="empty-state" id="emptyState">
+      <div class="icon">🛡️</div>
+      <p>No scans yet.<br/>Hover over an image on any<br/>website and click <strong>Scan</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <button class="btn btn-ghost" id="clearBtn">Clear History</button>
+    <button class="btn btn-primary" id="docsBtn">API Docs ↗</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

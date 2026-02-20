@@ -1,0 +1,107 @@
+/* ─── DeepShield — Floating Overlay System ───────────────────────────────────
+   Uses FIXED positioning so overlays are NEVER clipped by Instagram/TikTok's
+   overflow:hidden containers.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Floating Scan Button ────────────────────────────────────────────────── */
+.ds-scan-overlay {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  background: linear-gradient(135deg, #0a0f2c, #1a2a6c) !important;
+  color: #00e5ff !important;
+  border: 1.5px solid #00e5ff !important;
+  border-radius: 20px !important;
+  padding: 5px 12px !important;
+  font-size: 12px !important;
+  font-family: 'Segoe UI', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.5), 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  transition: opacity 0.2s, transform 0.15s !important;
+  pointer-events: all !important;
+  letter-spacing: 0.4px !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+}
+
+.ds-scan-overlay:hover {
+  background: linear-gradient(135deg, #1a2a6c, #00bcd4) !important;
+  transform: scale(1.05) !important;
+}
+
+/* ── Floating Result Badge ───────────────────────────────────────────────── */
+.ds-result-overlay {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  border-radius: 20px !important;
+  padding: 5px 12px !important;
+  font-size: 12px !important;
+  font-family: 'Segoe UI', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  pointer-events: none !important;
+  backdrop-filter: blur(6px) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6) !important;
+  animation: ds-pop 0.25s ease !important;
+  white-space: nowrap !important;
+}
+
+@keyframes ds-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ds-result-low {
+  background: rgba(0, 200, 83, 0.92) !important;
+  color: #fff !important;
+}
+
+.ds-result-medium {
+  background: rgba(255, 160, 0, 0.92) !important;
+  color: #fff !important;
+}
+
+.ds-result-high {
+  background: rgba(229, 57, 53, 0.92) !important;
+  color: #fff !important;
+}
+
+.ds-result-scanning {
+  background: rgba(10, 20, 50, 0.92) !important;
+  color: #00e5ff !important;
+  border: 1px solid #00e5ff !important;
+}
+
+/* ── Spinner ─────────────────────────────────────────────────────────────── */
+.ds-spinner {
+  display: inline-block !important;
+  width: 11px !important;
+  height: 11px !important;
+  border: 2px solid #00e5ff !important;
+  border-top-color: transparent !important;
+  border-radius: 50% !important;
+  animation: ds-spin 0.7s linear infinite !important;
+}
+
+@keyframes ds-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── High-risk red glow on the element itself ────────────────────────────── */
+.ds-high-risk {
+  outline: 3px solid rgba(229, 57, 53, 0.9) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 20px rgba(229, 57, 53, 0.6) !important;
+}

@@ -1,0 +1,277 @@
+/* ─── DeepShield Popup Styles ─────────────────────────────────────────────── */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 360px;
+    min-height: 420px;
+    background: #080d1f;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #e0e6ff;
+    overflow-x: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.header {
+    background: linear-gradient(135deg, #0a0f2c 0%, #1a2a6c 100%);
+    padding: 16px 18px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+.header img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.header-text h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.header-text p {
+    font-size: 11px;
+    color: #00e5ff;
+    opacity: 0.85;
+}
+
+.status-dot {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #555;
+    flex-shrink: 0;
+}
+
+.dot.online {
+    background: #00e676;
+    box-shadow: 0 0 6px #00e676;
+}
+
+.dot.offline {
+    background: #ef5350;
+    box-shadow: 0 0 6px #ef5350;
+}
+
+/* ── Stats row ───────────────────────────────────────────────────────────── */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item {
+    padding: 12px 8px;
+    text-align: center;
+    background: #0d1326;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: #8899c0;
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-item.low .stat-value {
+    color: #00e676;
+}
+
+.stat-item.medium .stat-value {
+    color: #ffa726;
+}
+
+.stat-item.high .stat-value {
+    color: #ef5350;
+}
+
+/* ── Section heading ─────────────────────────────────────────────────────── */
+.section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #8899c0;
+    padding: 12px 16px 6px;
+}
+
+/* ── History list ────────────────────────────────────────────────────────── */
+.history-list {
+    max-height: 220px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #1e2d5a transparent;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.15s;
+}
+
+.history-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.risk-chip {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    min-width: 52px;
+    text-align: center;
+}
+
+.chip-Low {
+    background: rgba(0, 230, 118, 0.15);
+    color: #00e676;
+    border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+.chip-Medium {
+    background: rgba(255, 167, 38, 0.15);
+    color: #ffa726;
+    border: 1px solid rgba(255, 167, 38, 0.3);
+}
+
+.chip-High {
+    background: rgba(239, 83, 80, 0.15);
+    color: #ef5350;
+    border: 1px solid rgba(239, 83, 80, 0.3);
+}
+
+.history-url {
+    flex: 1;
+    font-size: 11px;
+    color: #a0b0d0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-score {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #c0cce8;
+}
+
+.history-type {
+    flex-shrink: 0;
+    font-size: 10px;
+    color: #00e5ff;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.empty-state {
+    padding: 28px 20px;
+    text-align: center;
+    color: #4a5880;
+}
+
+.empty-state .icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ── Footer actions ──────────────────────────────────────────────────────── */
+.footer {
+    padding: 10px 14px;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    letter-spacing: 0.3px;
+}
+
+.btn:hover {
+    opacity: 0.88;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0d47a1, #00bcd4);
+    color: #fff;
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.07);
+    color: #8899c0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Backend offline banner ──────────────────────────────────────────────── */
+.offline-banner {
+    background: rgba(239, 83, 80, 0.12);
+    border: 1px solid rgba(239, 83, 80, 0.3);
+    border-radius: 8px;
+    margin: 10px 14px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #ef9a9a;
+    display: none;
+    line-height: 1.6;
+}
+
+.offline-banner.visible {
+    display: block;
+}
+
+.offline-banner code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 10.5px;
+}
