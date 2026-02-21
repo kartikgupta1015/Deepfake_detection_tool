@@ -42,12 +42,12 @@ class MultimodalDetector(nn.Module):
         
         # 1. Branches
         self.video_branch = VideoFeatureExtractor().to(device)
-        self.video_temporal = TemporalTransformer(input_dim=1792).to(device)
+        self.video_temporal = TemporalTransformer(input_dim=1280).to(device)
         
         self.audio_branch = AudioTransformer().to(device)
         
         # 2. Fusion
-        self.cross_modal = CrossModalAttention(v_dim=1792, a_dim=512).to(device)
+        self.cross_modal = CrossModalAttention(v_dim=1280, a_dim=512).to(device)
         
         # 3. Final Head (Ensemble Light for Uncertainty)
         # Two heads for "Deep Ensemble" effect

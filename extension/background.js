@@ -3,7 +3,7 @@
  * Handles: context menu, result storage, badge counter, notifications
  */
 
-const BACKEND = "http://localhost:8000";
+const BACKEND = "https://deepshieldbackend-production.up.railway.app";
 
 /* ─── Context menu ─────────────────────────────────────────────────────────── */
 

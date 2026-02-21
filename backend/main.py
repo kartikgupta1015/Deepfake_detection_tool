@@ -48,7 +48,7 @@ async def startup_event():
     _audio_detector = AudioTransformer().to(device)
     _video_processor = VideoProcessor()
     
-    print("[DeepShield API] 🟢 Research-Grade Multi-Modal Engine Ready")
+    print("[DeepShield API] OK Research-Grade Multi-Modal Engine Ready")
 
 @app.post("/detect-image")
 async def detect_image(file: UploadFile = File(...)):

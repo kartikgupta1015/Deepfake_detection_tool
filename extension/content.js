@@ -6,7 +6,7 @@
  * On social media: captures canvas frames (avoids auth-gated CDN URL issues).
  */
 
-const BACKEND = "http://localhost:8000";
+const BACKEND = "https://deepshieldbackend-production.up.railway.app";
 const MIN_SIZE = 80;
 const MAX_CONCURRENT = 3;
 const SOCIAL_HOSTS = /instagram|facebook|tiktok|youtube|twitter|x\.com/i;
